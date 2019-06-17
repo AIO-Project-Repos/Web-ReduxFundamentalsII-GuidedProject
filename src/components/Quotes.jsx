@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { shape, string, arrayOf, func, bool } from 'prop-types';
 import Quote from './Quote';
+// STEP 8: HERE ARE THE NEEDED ACTION DISPATCHERS
 import { deleteQuote, makeQuoteOfTheDay, markApocryphal } from '../App';
 
 
@@ -14,12 +15,15 @@ export class Quotes extends React.Component {
         <h3>My Favorite Quotes</h3>
         <div>
           {
-            // is <Quote /> getting everything it needs?
             quotes.map(quote => (
               <Quote
                 key={quote.id}
+
+                // STEP 11: WE GET THE SLICES OF STATE FROM PROPS
                 quote={quote}
                 isQuoteOfTheDay={this.props.quoteOfTheDay === quote.id}
+
+                // STEP 13: WE GET THE ACTION DISPATCHERS FROM PROPS
                 makeQuoteOfTheDay={this.props.makeQuoteOfTheDay}
                 markApocryphal={this.props.markApocryphal}
                 deleteQuote={this.props.deleteQuote}
@@ -48,10 +52,13 @@ Quotes.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return state;
+  // STEP 9: FLESH OUT
+  return {};
 }
 
 export default connect(
+  // STEP 10: CONNECT THE COMPONENT PASSING MAP STATE TO PROPS AS 1ST ARG
   mapStateToProps,
+  // STEP 12: INJECT THE ACTION DISPATCHERS AS 2ND ARG TO CONNECT
   { deleteQuote, makeQuoteOfTheDay, markApocryphal },
 )(Quotes);

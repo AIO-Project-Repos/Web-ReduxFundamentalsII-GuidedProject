@@ -10,12 +10,8 @@ export class QuoteForm extends React.Component {
   textRef = React.createRef()
 
   onAddQuote = () => {
-    // 3- implement so it uses this.props.addQuote
+    // 2- implement so it uses this.props.addQuote
     // and also clears the inputs
-    this.props.addQuote(
-      this.authorRef.current.value,
-      this.textRef.current.value,
-    );
   }
 
   render() {
@@ -47,7 +43,6 @@ function mapStateToProps(state) {
   return {
     // 1- fix so component gets a numberOfQuotes
     // that maps to state.quotes.length
-    numberOfQuotes: state.quotes.length,
   };
 }
 
