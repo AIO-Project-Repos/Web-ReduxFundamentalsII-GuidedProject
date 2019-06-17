@@ -53,6 +53,7 @@
         "react/jsx-closing-bracket-location": 0,
         "react/require-default-props": 0,
         "no-underscore-dangle": 0,
-        "quotes": 0
+        "quotes": 0,
+        "no-param-reassign": 0
     }
 }
