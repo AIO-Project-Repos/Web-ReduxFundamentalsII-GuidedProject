@@ -27,11 +27,11 @@ function quoteOfTheDayReducer(state = null, action) {
 
 // STEP 4: COMBINE REDUCERS
 // use combineReducers to create a root reducer off of our reducers
-const rootReducer = Function.prototype;
+const combinedReducer = Function.prototype;
 
 // STEP 5: CREATE THE REDUX STORE
 const store = createStore(
-  rootReducer,
+  combinedReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
