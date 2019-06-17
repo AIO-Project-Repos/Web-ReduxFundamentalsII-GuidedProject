@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { shape, string, arrayOf, func } from 'prop-types';
 import Quote from './Quote';
-import { deleteQuote, makeQuoteOfTheDay } from '../App';
+import { deleteQuote, makeQuoteOfTheDay, markApocryphal } from '../App';
 
 
 export class Quotes extends React.Component {
@@ -48,13 +47,7 @@ function mapStateToProps(state) {
     // look at the propTypes for hints
   };
 }
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    // there are 2 keys missing here!
-    // look at the propTypes for hints
-    // (or imports at the top)
-  }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
+export default connect(
+  mapStateToProps,
+  { deleteQuote, makeQuoteOfTheDay, markApocryphal },
+)(Quotes);

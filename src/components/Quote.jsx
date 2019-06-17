@@ -23,8 +23,8 @@ export default class Quote extends React.Component {
     const {
       quote,
       deleteQuote,
-      makeQuoteOfTheDay,
       isQuoteOfTheDay,
+      makeQuoteOfTheDay,
       markApocryphal,
     } = this.props;
 
