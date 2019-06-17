@@ -7,7 +7,7 @@ const StyledQuote = styled.div`
   margin: 10px;
   padding: 8px;
   background-color: ${pr => (pr.highlight ? '#fffbc4' : '#f4f4f4')};
-  border: ${pr => (pr.apocryphal ? '2 px solid red' : 'initial')};
+  border: ${pr => (pr.redBorder ? '2px solid red' : 'initial')};
 
   .text {
     margin-bottom: 10px;

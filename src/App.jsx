@@ -6,7 +6,7 @@ import uuid from 'uuid';
 import dummyQuotes from './constants/dummyQuotes';
 import Container from './components/Container';
 
-// STEP 1: FIGURE OUT THE STATE THE APP NEEDS!
+// STEP 1: FIGURE OUT THE STATE THE APP NEEDS! { quotes, quoteOfTheDay }
 
 // STEP 2: COME UP WITH ACTION TYPES
 export const DELETE_QUOTE = 'DELETE_QUOTE';
@@ -16,18 +16,40 @@ export const MARK_APOCRYPHAL = 'MARK_APOCRYPHAL';
 
 // STEP 3: BUILD ONE REDUCER PER STATE SLICE
 function quotesReducer(state = dummyQuotes, action) {
-  // flesh out using action types as your guide
-  return state;
+  switch (action.type) {
+    case ADD_QUOTE:
+      return state.concat(action.payload);
+    case DELETE_QUOTE:
+      return state.filter(quote => quote.id !== action.payload)
+    case MARK_APOCRYPHAL:
+      return state.map(quote => {
+        if (quote.id !== action.payload) {
+          return quote;
+        }
+        quote.apocryphal = true;
+        return quote;
+      });
+    default:
+      return state;
+  }
 }
 
 function quoteOfTheDayReducer(state = null, action) {
   // flesh out using action types as your guide
-  return state;
+  switch (action.type) {
+    case MAKE_QUOTE_OF_THE_DAY:
+      return action.payload;
+    default:
+      return state;
+  }
 }
 
 // STEP 4: COMBINE REDUCERS
 // use combineReducers to create a root reducer off of our reducers
-const combinedReducer = Function.prototype;
+const combinedReducer = combineReducers({
+  quotes: quotesReducer,
+  quoteOfTheDay: quoteOfTheDayReducer,
+});
 
 // STEP 5: CREATE THE REDUX STORE
 const store = createStore(
@@ -46,28 +68,33 @@ ReactDOM.render(
 // STEP 7: CREATE ACTION DISPATCHER FUNCTIONS
 export function deleteQuote(id) {
   return {
-    // what type?
-    // what payload?
+    type: DELETE_QUOTE,
+    payload: id,
   };
 }
 
 export function makeQuoteOfTheDay(id) {
   return {
-    // what type?
-    // what payload?
+    type: MAKE_QUOTE_OF_THE_DAY,
+    payload: id,
   };
 }
 
 export function markApocryphal(id) {
   return {
-    // what type?
-    // what payload?
+    type: MARK_APOCRYPHAL,
+    payload: id,
   };
 }
 
 export function addQuote(author, text) {
   return {
-    // what type?
-    // what payload?
+    type: ADD_QUOTE,
+    payload: {
+      id: uuid(),
+      author,
+      text,
+      apocryphal: false,
+    },
   };
 }

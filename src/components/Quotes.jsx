@@ -19,6 +19,10 @@ export class Quotes extends React.Component {
               <Quote
                 key={quote.id}
                 quote={quote}
+                isQuoteOfTheDay={this.props.quoteOfTheDay === quote.id}
+                makeQuoteOfTheDay={this.props.makeQuoteOfTheDay}
+                markApocryphal={this.props.markApocryphal}
+                deleteQuote={this.props.deleteQuote}
               />
             ))
           }
@@ -39,15 +43,14 @@ Quotes.propTypes = {
   quoteOfTheDay: string,
   // functions that change state:
   makeQuoteOfTheDay: func,
+  markApocryphal: func,
   deleteQuote: func,
 };
 
 function mapStateToProps(state) {
-  return {
-    // there are 2 keys missing here!
-    // look at the propTypes for hints
-  };
+  return state;
 }
+
 export default connect(
   mapStateToProps,
   { deleteQuote, makeQuoteOfTheDay, markApocryphal },
