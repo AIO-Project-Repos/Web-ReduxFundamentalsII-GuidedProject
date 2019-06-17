@@ -19,7 +19,13 @@ const StyledQuote = styled.div`
 
 export default class Quote extends React.Component {
   render() {
-    const { quote, deleteQuote, makeQuoteOfTheDay, isQuoteOfTheDay } = this.props;
+    const {
+      quote,
+      deleteQuote,
+      makeQuoteOfTheDay,
+      isQuoteOfTheDay,
+      markApocryphal,
+    } = this.props;
 
     return (
       <StyledQuote highlight={isQuoteOfTheDay}>
@@ -27,6 +33,7 @@ export default class Quote extends React.Component {
         <em className='author'>{quote.author}</em>
         <div>
           <button onClick={() => deleteQuote(quote.id)}>Delete</button>
+          <button onClick={() => markApocryphal(quote.id)}>Mark Apocryphal</button>
           <button onClick={() => makeQuoteOfTheDay(quote.id)}>Make Quote of the Day</button>
         </div>
       </StyledQuote>
@@ -40,6 +47,7 @@ Quote.propTypes = {
     text: string.isRequired,
   }).isRequired,
   deleteQuote: func.isRequired,
+  markApocryphal: func.isRequired,
   makeQuoteOfTheDay: func.isRequired,
   isQuoteOfTheDay: bool.isRequired,
 };

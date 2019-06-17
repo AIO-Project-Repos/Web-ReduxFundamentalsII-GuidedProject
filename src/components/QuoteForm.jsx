@@ -1,5 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { func, number } from 'prop-types';
 import { addQuote } from '../App';
@@ -18,7 +17,7 @@ export class QuoteForm extends React.Component {
   render() {
     return (
       <div>
-        <h3>You have {this.props.numberOfQuotes}. Add New Quote!</h3>
+        <h3>You have {this.props.numberOfQuotes || '0'}. Add New Quote!</h3>
         <div>
           <em>Author: </em>
           <input ref={this.authorRef} type="text" />
@@ -47,10 +46,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    // 2- fix
-  }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(QuoteForm);
+export default connect(mapStateToProps, { addQuote })(QuoteForm);
