@@ -7,6 +7,7 @@ const StyledQuote = styled.div`
   margin: 10px;
   padding: 8px;
   background-color: ${pr => (pr.highlight ? '#fffbc4' : '#f4f4f4')};
+  border: ${pr => (pr.apocryphal ? '2 px solid red' : 'initial')};
 
   .text {
     margin-bottom: 10px;
@@ -28,7 +29,7 @@ export default class Quote extends React.Component {
     } = this.props;
 
     return (
-      <StyledQuote highlight={isQuoteOfTheDay}>
+      <StyledQuote highlight={isQuoteOfTheDay} redBorder={quote.apocryphal}>
         <div className='text'>{quote.text}</div>
         <em className='author'>{quote.author}</em>
         <div>
