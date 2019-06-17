@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { shape, string, arrayOf, func } from 'prop-types';
+import { shape, string, arrayOf, func, bool } from 'prop-types';
 import Quote from './Quote';
 import { deleteQuote, makeQuoteOfTheDay, markApocryphal } from '../App';
 
@@ -34,6 +34,7 @@ Quotes.propTypes = {
     id: string.isRequired,
     author: string.isRequired,
     text: string.isRequired,
+    apocryphal: bool.isRequired,
   })).isRequired,
   quoteOfTheDay: string,
   // functions that change state:
