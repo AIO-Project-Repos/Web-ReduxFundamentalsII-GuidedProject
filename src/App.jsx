@@ -7,6 +7,8 @@ import dummyQuotes from './constants/dummyQuotes';
 import Container from './components/Container';
 
 // STEP 1: FIGURE OUT THE STATE THE APP NEEDS! { quotes, quoteOfTheDay }
+// The less state the better. Avoid redundant slices, like slices
+// that could be computed from other slices!
 
 // STEP 2: COME UP WITH ACTION TYPES
 export const DELETE_QUOTE = 'DELETE_QUOTE';
@@ -44,6 +46,8 @@ ReactDOM.render(
 );
 
 // STEP 7: CREATE ACTION DISPATCHER FUNCTIONS
+// action dispatchers can be shared across all components,
+// and saves components from having to use props.dispatch explicitly
 export function deleteQuote(id) {
   return {
     // flesh out
