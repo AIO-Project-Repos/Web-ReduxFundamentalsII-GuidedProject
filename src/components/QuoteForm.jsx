@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { func, number } from 'prop-types';
-import { addQuote } from '../App';
+import { addQuote } from '../state/actionDispatchers';
 
 
 export class QuoteForm extends React.Component {

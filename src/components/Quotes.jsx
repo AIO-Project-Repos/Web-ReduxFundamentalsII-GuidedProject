@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { shape, string, arrayOf, func, bool } from 'prop-types';
 import Quote from './Quote';
 // STEP 8: HERE ARE THE NEEDED ACTION DISPATCHERS
-import { deleteQuote, makeQuoteOfTheDay, markApocryphal } from '../App';
+import * as actionDispatchers from '../state/actionDispatchers';
 
 
 export class Quotes extends React.Component {
@@ -63,5 +63,5 @@ export default connect(
   // STEP 10: CONNECT THE COMPONENT PASSING MAP STATE TO PROPS AS 1ST ARG
   mapStateToProps,
   // STEP 12: INJECT THE ACTION DISPATCHERS AS 2ND ARG TO CONNECT
-  { deleteQuote, makeQuoteOfTheDay, markApocryphal },
+  actionDispatchers,
 )(Quotes);
