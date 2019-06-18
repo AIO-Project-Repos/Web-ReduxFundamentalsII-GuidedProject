@@ -19,8 +19,16 @@ export const MARK_APOCRYPHAL = 'MARK_APOCRYPHAL';
 // STEP 3: BUILD ONE REDUCER PER STATE SLICE
 // No side effects! No randomness! Always return state! (even if unchanged)
 function quotesReducer(state = dummyQuotes, action) {
-  // flesh out using action types to help you
-  return state;
+  switch (action.type) {
+    case (DELETE_QUOTE):
+      return null;
+    case (ADD_QUOTE):
+      return state;
+    case (MARK_APOCRYPHAL):
+      return state;
+    default:
+      return state;
+  }
 }
 
 function quoteOfTheDayReducer(state = null, action) {
