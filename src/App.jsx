@@ -23,7 +23,17 @@ function quotesReducer(state = dummyQuotes, action) {
     case (DELETE_QUOTE):
       return state.filter(quote => quote.id !== action.payload);
     case (ADD_QUOTE):
-      return state.concat(action.payload);
+      // return state.concat(action.payload);
+      return [...state, action.payload];
+      // return [
+      //   ...state,
+      //   {
+      //     id: action.payload.id,
+      //     author: action.payload.author,
+      //     text: action.payload.text,
+      //     apocryphal: false,
+      //   },
+      // ];
     case (MARK_APOCRYPHAL):
       return state;
     default:
