@@ -17,6 +17,7 @@ export const ADD_QUOTE = 'ADD_QUOTE';
 export const MARK_APOCRYPHAL = 'MARK_APOCRYPHAL';
 
 // STEP 3: BUILD ONE REDUCER PER STATE SLICE
+// No side effects! No randomness! Always return state! (even if unchanged)
 function quotesReducer(state = dummyQuotes, action) {
   // flesh out using action types to help you
   return state;
@@ -68,7 +69,7 @@ export function markApocryphal(id) {
 
 export function addQuote(author, text) {
   return {
-    // flesh out. This one's trickier.
-    // A quote is more than author and text.
+    // flesh out. This action needs a more complicated payload.
+    // A quote is more than author and text!
   };
 }
