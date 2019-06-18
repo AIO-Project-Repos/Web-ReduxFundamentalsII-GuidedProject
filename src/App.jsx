@@ -80,25 +80,33 @@ ReactDOM.render(
 // and saves components from having to use props.dispatch explicitly
 export function deleteQuote(id) {
   return {
-    // flesh out
+    type: DELETE_QUOTE,
+    payload: id,
   };
 }
 
 export function makeQuoteOfTheDay(id) {
   return {
-    // flesh out
+    type: MAKE_QUOTE_OF_THE_DAY,
+    payload: id,
   };
 }
 
 export function markApocryphal(id) {
   return {
-    // flesh out
+    type: MARK_APOCRYPHAL,
+    payload: id,
   };
 }
 
 export function addQuote(author, text) {
   return {
-    // flesh out. This action needs a more complicated payload.
-    // A quote is more than author and text!
+    type: ADD_QUOTE,
+    payload: {
+      author,
+      text,
+      id: uuid(),
+      apocryphal: false,
+    },
   };
 }
