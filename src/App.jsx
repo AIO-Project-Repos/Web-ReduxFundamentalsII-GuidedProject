@@ -21,9 +21,9 @@ export const MARK_APOCRYPHAL = 'MARK_APOCRYPHAL';
 function quotesReducer(state = dummyQuotes, action) {
   switch (action.type) {
     case (DELETE_QUOTE):
-      return state;
+      return state.filter(quote => quote.id !== action.payload);
     case (ADD_QUOTE):
-      return state;
+      return state.concat(action.payload);
     case (MARK_APOCRYPHAL):
       return state;
     default:
