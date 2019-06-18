@@ -56,7 +56,10 @@ function quoteOfTheDayReducer(state = null, action) {
 }
 // STEP 4: COMBINE REDUCERS
 // use combineReducers to create a root reducer off of our reducers
-const combinedReducer = Function.prototype;
+const combinedReducer = combineReducers({
+  quotes: quotesReducer,
+  quoteOfTheDay: quoteOfTheDayReducer,
+});
 
 // STEP 5: CREATE THE REDUX STORE
 const store = createStore(
