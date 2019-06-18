@@ -35,7 +35,17 @@ function quotesReducer(state = dummyQuotes, action) {
       //   },
       // ];
     case (MARK_APOCRYPHAL):
-      return state;
+      return state.map(quote => {
+        if (quote.id === action.payload) {
+          // we need to return a BRAND NEW THING
+          // const apocryfiedQuote = Object.assign({}, quote, { apocryphal: false });
+          // return apocryfiedQuote;
+
+          // emily has it right!!!!!!
+          return { ...quote, apocryphal: true };
+        }
+        return quote;
+      });
     default:
       return state;
   }
