@@ -53,7 +53,10 @@ Quotes.propTypes = {
 
 function mapStateToProps(state) {
   // STEP 9: FLESH OUT
-  return {};
+  return {
+    quotes: state.quotes,
+    quoteOfTheDay: state.quoteOfTheDay,
+  };
 }
 
 export default connect(

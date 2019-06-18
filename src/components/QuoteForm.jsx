@@ -10,6 +10,10 @@ export class QuoteForm extends React.Component {
   textRef = React.createRef()
 
   onAddQuote = () => {
+    this.props.addQuote(
+      this.authorRef.current.value,
+      this.textRef.current.value,
+    );
     // 2- implement so it uses this.props.addQuote
     // and also clears the inputs
   }
