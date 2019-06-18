@@ -25,15 +25,6 @@ function quotesReducer(state = dummyQuotes, action) {
     case (ADD_QUOTE):
       // return state.concat(action.payload);
       return [...state, action.payload];
-      // return [
-      //   ...state,
-      //   {
-      //     id: action.payload.id,
-      //     author: action.payload.author,
-      //     text: action.payload.text,
-      //     apocryphal: false,
-      //   },
-      // ];
     case (MARK_APOCRYPHAL):
       return state.map(quote => {
         if (quote.id === action.payload) {
@@ -55,8 +46,10 @@ function quoteOfTheDayReducer(state = null, action) {
   switch (action.type) {
     case (MAKE_QUOTE_OF_THE_DAY):
       return action.payload;
-    case (DELETE_QUOTE && action.payload === state):
-      return null;
+    case (DELETE_QUOTE):
+      return action.payload === state
+        ? null
+        : state;
     default:
       return state;
   }
