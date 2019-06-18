@@ -24,10 +24,15 @@ function quotesReducer(state = dummyQuotes, action) {
 }
 
 function quoteOfTheDayReducer(state = null, action) {
-  // flesh out using action types to help you
-  return state;
+  switch (action.type) {
+    case (MAKE_QUOTE_OF_THE_DAY):
+      return action.payload;
+    case (DELETE_QUOTE && action.payload === state):
+      return null;
+    default:
+      return state;
+  }
 }
-
 // STEP 4: COMBINE REDUCERS
 // use combineReducers to create a root reducer off of our reducers
 const combinedReducer = Function.prototype;
