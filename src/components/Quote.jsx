@@ -44,8 +44,10 @@ export default class Quote extends React.Component {
 
 Quote.propTypes = {
   quote: shape({
+    id: string.isRequired,
     author: string.isRequired,
     text: string.isRequired,
+    apocryphal: bool.isRequired,
   }).isRequired,
   deleteQuote: func.isRequired,
   markApocryphal: func.isRequired,
