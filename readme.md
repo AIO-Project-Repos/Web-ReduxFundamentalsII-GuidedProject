@@ -13,8 +13,4 @@ We need `node` & `npm`, as well as packages `live-server` and `eslint` installed
 
 # Steps
 
-## App.jsx
-  * Explain the different moving parts.
-  * Flesh out one reducer, let students do the other.
-  * Ask the students to use `combineReducers`.
-  * Flesh out two action creators, let students do the other.
+See steps inside App.jsx and Quotes.jsx
