@@ -38,7 +38,7 @@ function quotesReducer(state = dummyQuotes, action) {
       return state.map(quote => {
         if (quote.id === action.payload) {
           // we need to return a BRAND NEW THING
-          // const apocryfiedQuote = Object.assign({}, quote, { apocryphal: false });
+          // const apocryfiedQuote = Object.assign({}, quote, { apocryphal: true });
           // return apocryfiedQuote;
 
           // emily has it right!!!!!!
